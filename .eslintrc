@@ -1,0 +1,12 @@
+{
+  "env": {
+    "jest": true
+  },
+  "extends": [
+    "plugin:unicorn/recommended",
+    "airbnb-base"
+  ],
+  "rules": {
+    "unicorn/prefer-optional-catch-binding": "off"
+  }
+}
