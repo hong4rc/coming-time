@@ -1,8 +1,8 @@
-const oneHour = 60 * 60 * 1000;
+export const oneHour = 60 * 60 * 1000;
 const hour2Min = 60;
-const hourInDay = 24;
+export const hourInDay = 24;
 
-const nextHour = (hour, timezone = -new Date().getTimezoneOffset() / hour2Min) => {
+export const nextHour = (hour, timezone = -new Date().getTimezoneOffset() / hour2Min) => {
   const deltaMin = timezone * hour2Min + new Date().getTimezoneOffset();
   return (now = Date.now()) => {
     const next = new Date(+now + oneHour - (now % oneHour));
@@ -44,7 +44,7 @@ const formatInfo = (info) => {
   throw new TypeError('Do not support this type');
 };
 
-const validInfo = (info) => {
+export const validInfo = (info) => {
   const format = formatInfo(info);
   if (!(format.hour >= 0 && format.hour <= 23)) {
     throw new RangeError('`hour` must be >= 0 and <= 23');
@@ -56,9 +56,4 @@ const validInfo = (info) => {
     throw new RangeError('`seconds` must be >= 0 and <= 59');
   }
   return format;
-};
-
-module.exports = {
-  nextHour,
-  validInfo,
 };

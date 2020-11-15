@@ -1,17 +1,20 @@
-const { nextHour, validInfo } = require('./utils');
+import {
+  nextHour, validInfo,
+  oneHour, hourInDay,
+} from './utils';
 
-const nextTime = (info, timezone) => {
+const comingTime = (info, timezone) => {
   const time = validInfo(info);
   const functionNext = nextHour(time.hour, timezone);
   return (now = Date.now()) => {
     const next = functionNext(now);
     next.setMinutes(next.getMinutes() + time.minutes);
     next.setSeconds(time.seconds);
-    if (next - now > 24 * 60 * 60 * 1000) {
+    if (next - now > hourInDay * oneHour) {
       next.setDate(next.getDate() - 1);
     }
     return next;
   };
 };
 
-module.exports = nextTime;
+export default comingTime;
