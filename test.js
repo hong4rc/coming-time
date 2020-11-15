@@ -57,8 +57,8 @@ describe('next-time', () => {
   describe('normal', () => {
     it('same hour, few minutes less', () => {
       expect(
-        comingTime({ hour: 3, minutes: 3 }, 7)(new Date('Nov 13 2020 03:01:00 GMT+0700')).toISOString(),
-      ).toBe(new Date('Nov 13 2020 03:03:00 GMT+0700').toISOString());
+        comingTime({ hour: 3, minutes: 3 }, 6.5)(new Date('Nov 13 2020 03:01:00 GMT+0630')).toISOString(),
+      ).toBe(new Date('Nov 13 2020 03:03:00 GMT+0630').toISOString());
     });
     it('same hour, few minutes left over', () => {
       expect(

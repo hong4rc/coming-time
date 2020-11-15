@@ -5,7 +5,7 @@ const nextTime = (info, timezone) => {
   const functionNext = nextHour(time.hour, timezone);
   return (now = Date.now()) => {
     const next = functionNext(now);
-    next.setMinutes(time.minutes);
+    next.setMinutes(next.getMinutes() + time.minutes);
     next.setSeconds(time.seconds);
     if (next - now > 24 * 60 * 60 * 1000) {
       next.setDate(next.getDate() - 1);
