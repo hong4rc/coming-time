@@ -1,7 +1,6 @@
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
-    'utils.js',
-    'index.js',
+    'src/**.js',
   ],
 };

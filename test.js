@@ -1,5 +1,5 @@
-const { nextHour, validInfo } = require('./utils');
-const comingTime = require('.');
+const { nextHour, validInfo } = require('./src/utils');
+const comingTime = require('./src');
 
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
